@@ -86,7 +86,7 @@ def main():
         elif choice == "4":
             list_tasks()
         elif choice == "5":
-            print("Exiting the application. Goodbye!")
+            print("Exiting the applicatio")
             break
         else:
             print("Invalid choice. Please try again.")
