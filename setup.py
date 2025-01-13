@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from distutils.core import setup
 setup(
- name='{TodoList-Goutorbe-DIA1}',
+ name='{TodoList-Goutorbe-CDOF2}',
  version='1.0',
  author='{ThomasGoutorbe}',
  license='MIT',
