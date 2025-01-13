@@ -15,12 +15,13 @@ def save_tasks(tasks):
     with open(DATA_FILE, "w") as file:
         json.dump(tasks, file, indent=4)
 
-def add_task(title, description=""):
+def add_task(title, description="", priority="Medium"):
     tasks = load_tasks()
     task = {
         "title": title,
         "description": description,
-        "completed": False
+        "completed": False,
+        "priority": priority
     }
     tasks.append(task)
     save_tasks(tasks)
@@ -51,9 +52,12 @@ def list_tasks():
         return
 
     for index, task in enumerate(tasks):
+        if "priority" not in task:
+            task["priority"] = "Medium"  
         status = "Completed" if task["completed"] else "Not completed"
-        print(f"{index}. [{status}] {task['title']} - {task['description']}")
-
+        print(f"{index}. [{status}] [Priority: {task['priority']}] {task['title']} - {task['description']}")
+    save_tasks(tasks)  
+    
 def main():
     while True:
         print("\nTodo List Application")
@@ -68,7 +72,17 @@ def main():
         if choice == "1":
             title = input("Enter task title: ")
             description = input("Enter task description (optional): ")
-            add_task(title, description)
+            print("Select priority level:")
+            print("1. Low")
+            print("2. Medium")
+            print("3. High")
+            priority_choice = input("Choose priority (1-3): ")
+            priority = "Medium"
+            if priority_choice == "1":
+                priority = "Low"
+            elif priority_choice == "3":
+                priority = "High"
+            add_task(title, description, priority)
         elif choice == "2":
             list_tasks()
             try:
@@ -86,7 +100,7 @@ def main():
         elif choice == "4":
             list_tasks()
         elif choice == "5":
-            print("Exiting the applicatio")
+            print("Exiting the application.")
             break
         else:
             print("Invalid choice. Please try again.")

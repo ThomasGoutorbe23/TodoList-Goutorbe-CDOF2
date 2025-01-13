@@ -2,6 +2,19 @@
     {
         "title": "Task1",
         "description": "Task1 description",
-        "completed": false
+        "completed": false,
+        "priority": "Medium"
+    },
+    {
+        "title": "Task2",
+        "description": "abcde",
+        "completed": false,
+        "priority": "Medium"
+    },
+    {
+        "title": "TROIS",
+        "description": "trois",
+        "completed": false,
+        "priority": "High"
     }
 ]
