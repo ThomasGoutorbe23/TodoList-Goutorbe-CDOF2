@@ -51,9 +51,7 @@ def list_tasks():
         print("No tasks available.")
         return
 
-    for index, task in enumerate(tasks):
-        if "priority" not in task:
-            task["priority"] = "Medium"  
+    for index, task in enumerate(tasks): 
         status = "Completed" if task["completed"] else "Not completed"
         print(f"{index}. [{status}] [Priority: {task['priority']}] {task['title']} - {task['description']}")
     save_tasks(tasks)  
