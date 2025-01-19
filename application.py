@@ -52,7 +52,7 @@ def list_tasks():
         return
 
     for index, task in enumerate(tasks): 
-        if "priority" not in task:
+        if "priority" not in task:   #We have to ensure that the priority key is present 
             task["priority"] = "Medium" 
         status = "Completed" if task["completed"] else "Not completed"
         print(f"{index}. [{status}] [Priority: {task['priority']}] {task['title']} - {task['description']}")
